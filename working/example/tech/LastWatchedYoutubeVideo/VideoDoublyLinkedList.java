@@ -9,17 +9,17 @@ public class VideoDoublyLinkedList {
         tail = null;
     }
     class Node {
-        int VideoId;
+        String VideoId;
         Node next;
         Node prev;
-        public Node(int videoId, Node next, Node prev) {
+        public Node(String  videoId, Node next, Node prev) {
             VideoId = videoId;
             this.next = next;
             this.prev = prev;
         }
     }
 
-    public Node add(int Id) {
+    public Node add(String Id) {
         Node node = new Node(Id, null, null);
         if (head == null) {
             head = node;

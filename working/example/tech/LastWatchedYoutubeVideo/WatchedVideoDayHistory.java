@@ -4,15 +4,14 @@ import java.util.HashMap;
 import java.util.Vector;
 public class WatchedVideoDayHistory implements TestCaseRunner {
     private VideoDoublyLinkedList DLL;
-
+    HashMap<String, VideoDoublyLinkedList.Node> videoMap;
     public WatchedVideoDayHistory() {
-        this.DLL = null;
+        videoMap = new HashMap<>();
+        DLL = new VideoDoublyLinkedList();
     }
 
-    private void run(Vector<Integer> listOfvideoId, Integer perDayHistorySize) {
-        HashMap<Integer, VideoDoublyLinkedList.Node> videoMap = new HashMap<>();
-        DLL = new VideoDoublyLinkedList();
-        for (Integer videoId : listOfvideoId) {
+    public void run(Vector<String> listOfvideoId, Integer perDayHistorySize) {
+        for (String videoId : listOfvideoId) {
             VideoDoublyLinkedList.Node exist = videoMap.get(videoId);
             if (videoMap.size() < perDayHistorySize) {
                 if (exist == null) {
@@ -32,22 +31,23 @@ public class WatchedVideoDayHistory implements TestCaseRunner {
     }
     @Override
     public void RunTest() {
-        Vector<Integer> list = new Vector<>();
-        list.add(123);
-        list.add(234);
-        list.add(345);
-        list.add(123);
-        list.add(432);
-        list.add(456);
-        list.add(345);
-        list.add(432);
-        list.add(432);
+        Vector<String> list = new Vector<>();
+        list.add("123");
+        list.add("234");
+        list.add("345");
+        list.add("123");
+        list.add("432");
+        list.add("456");
+        list.add("345");
+        list.add("432");
+        list.add("432");
         this.run(list, 100);
     }
 
     @Override
     public void showOut() {
         VideoDoublyLinkedList.Node head = DLL.getHead();
+        System.out.print("Today's Last Watched History:");
         while(head != null) {
             System.out.print(" " + head.VideoId);
             head = head.next;
