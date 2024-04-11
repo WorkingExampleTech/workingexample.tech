@@ -1,4 +1,4 @@
-We are blog side workingexample.tech which focuses on below things.
+We are blog site workingexample.tech which focuses on below things.
 1) LLD 
 2) HLD
 3) Interview Questions
